@@ -3,7 +3,7 @@ Windows Styled Listbox Marking for Clarion Listboxes
 Makes use of the MARK attribute of a listbox and adds the standard Windows listbox marking hotkeys.
 
 ## NOTE: 
-### In Clarion 10, there is a limit of 65536 records in the queue. Marking still works, but the marked records don't display correctly when they are marked programmatically.
+### In Clarion 10, there is a limit of 65536 records in the queue. Marking still works if there are more records, but the marked records don't display correctly when they are marked programmatically.
 
 
 ## Installation:
@@ -15,7 +15,15 @@ Makes use of the MARK attribute of a listbox and adds the standard Windows listb
 * Declare a JS_ListMark object `ListMarker  JS_ListMark`
 * Make sure you have a `MARK BYTE` field in your queue and that it is assigned as the MARK attribute on the listbox.
 * Initialize the object after the window is open `ListMarker.Init(?YourListbox,YourQueue,YourQueue.Mark)`
-* Use the TakeHotKey(YourHotKey) method to handle certain operations (see demo example). 
+* Use the TagProc method to do simple operations on the tags without respect to updating the listbox.
+
+|Action| Parameter|
+| ---- | ------|
+|Mark All|ListMarker.TagProc(TagFunc:TagAll)|
+|UnMark All|ListMarker.TagProc(TagFunc:UnTagAll)|
+|Invert All|ListMarker.TagProc(TagFunc:FlipAll)|
+
+* Use the TakeHotKey(YourHotKey) method to handle certain operations on the list itself (see demo example). 
 
 |Action| Hotkey|
 | ---- | ------|
