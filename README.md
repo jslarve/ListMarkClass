@@ -5,6 +5,8 @@ Makes use of the MARK attribute of a listbox and adds the standard Windows listb
 ## NOTE: 
 ### In Clarion 10, there is a limit of 65536 records in the queue. Marking still works if there are more records, but the marked records don't display correctly when they are marked programmatically.
 
+### *Also, this class is not suitable for a page loaded browse. It is only for standard listboxes. At the time of this writing, I don't know if it will work with a File Loaded Browse.*
+
 
 ## Installation:
 * Place the JS_ListMark.clw and JS_ListMark.inc in your Clarion\Accessory\Libsrc\win
